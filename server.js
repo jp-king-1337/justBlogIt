@@ -37,7 +37,7 @@ app.use(session({
 }));
 
 // Load Routes
-app.use("/", []); // None yet
+// app.use("/"); // None yet, I guess that this will crash the server as long as I'm not calling any Middleware. Gonna comment out.
 
 // Connect to db and create tables based off models
 db.sync({ force: false })
