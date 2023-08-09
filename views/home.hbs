@@ -1,8 +1,14 @@
-<div style="text-align: center;">
+<div class="welcome-page">
     <h1>Welcome to Just Blog It!</h1>
-    <p>Got something to say? Just Blog It!</p>
 
-    <main class="posts">
+    {{!-- Choose a random sentence --}}
+    <h3 id="changingSentence" class="random-sentence"></h3>
+
+    {{!-- This one is constant --}}
+    <h3>Got something to say about tech? Just Blog It!</h3>
+
+
+    {{!-- <main class="posts">
         {{#if posts}}
         {{#each posts}}
         <div class="post">
@@ -15,5 +21,30 @@
         {{else}}
         <p>No posts available.</p>
         {{/if}}
-    </main>
+    </main> --}}
 </div>
+
+{{!-- ChatGPT generated these sentences for me. --}}
+<script>
+    const sentences = [
+        "Unleash your passion for technology and innovation.",
+        "Dive into the digital universe with us, where every pixel holds a story waiting to be explored.",
+        "Discover the latest tech trends, unearth hidden gems, and join the conversation that shapes tomorrow's digital landscape.",
+        "Whether you're a code whisperer or a tech enthusiast, Just Blog It is your portal to the ever-evolving world of bytes and circuits.",
+        "Join our community of tech enthusiasts and stay up-to-date with the latest breakthroughs.",
+        "Explore the intersection of creativity and technology in our diverse range of articles.",
+        "Unlock your curiosity and expand your horizons with our insightful tech content.",
+        "Embark on a journey through the digital realm and uncover the possibilities that await.",
+        "Turn your passion for tech into impactful stories that resonate with our global audience.",
+        "Elevate your understanding of technology and its influence on the modern world through our engaging content."
+    ];
+
+    function setRandomSentences() {
+        const shuffled = sentences.slice().sort(() => 0.5 - Math.random());
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`changingSentence`).textContent = shuffled[i];
+        }
+    }
+
+    window.onload = setRandomSentences;
+</script>

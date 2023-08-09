@@ -124,3 +124,15 @@ ul li {
 ul li p {
     margin: 4px;
 }
+
+.welcome-page {
+    text-align: center;
+}
+
+.welcome-page h3 {
+    padding: 0 50px;
+}
+
+.random-sentence {
+    margin-bottom: 10px;
+}
