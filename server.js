@@ -10,6 +10,7 @@ const session = require("express-session");
 const db = require("./db/connection");
 
 // Import routes
+const dashboard_routes = require("./controllers/dashboard_routes");
 const post_routes = require("./controllers/post_routes");
 const user_routes = require("./controllers/user_routes");
 const view_routes = require("./controllers/view_routes");
@@ -25,7 +26,12 @@ app.use(express.static("public")); // Allows client/browser to access folders an
 // Handlebars Template Engine Setup
 app.engine("hbs", engine({
     layoutsDir: "./views/layouts", // DRY - use templates
-    extname: "hbs" // Handlebars files are now .hbs
+    extname: "hbs", // Handlebars files are now .hbs
+    helpers: {
+        formatDate: function (date) {
+            return new Date(date).toLocaleDateString();
+        }
+    }
 }));
 app.set("view engine", "hbs");
 app.set("views", "./views");
@@ -39,7 +45,7 @@ app.use(session({
 }));
 
 // Load Routes
-app.use("/", [post_routes, user_routes, view_routes]);
+app.use("/", [dashboard_routes, post_routes, user_routes, view_routes]);
 
 // Connect to db and create tables based off models
 db.sync({ force: false })
