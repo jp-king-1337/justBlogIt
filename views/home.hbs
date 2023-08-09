@@ -1,4 +1,6 @@
 <div class="welcome-page">
+    {{!-- Only render the welcome info if user is not logged in --}}
+    {{#unless isLoggedIn}}
     <h1>Welcome to Just Blog It!</h1>
 
     {{!-- Choose a random sentence --}}
@@ -6,8 +8,10 @@
 
     {{!-- This one is constant --}}
     <h2>Got something to say about tech? Just Blog It!</h2>
+    {{/unless}}
 
-
+    {{!-- Only render the posts section if user is logged in --}}
+    {{#if isLoggedIn}}
     <main class="posts">
         {{#if posts}}
         {{#each posts}}
@@ -22,6 +26,7 @@
         <p>No posts available.</p>
         {{/if}}
     </main>
+    {{/if}}
 </div>
 
 {{!-- ChatGPT generated the sentences array for me. --}}
