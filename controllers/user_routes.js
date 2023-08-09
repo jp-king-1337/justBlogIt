@@ -36,7 +36,7 @@ router.post("/register", async (req, res) => {
     try {
         const newUser = await User.create(req.body);
 
-        req.session_user_id = newUser.id;
+        req.session.user_id = newUser.id;
 
         res.redirect("/dashboard");
     } catch (err) {

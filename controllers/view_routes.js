@@ -53,7 +53,6 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
 
     const posts = user.posts.map(t => t.get({ plain: true }));
 
-    // The user IS logged in
     res.render("dashboard", {
         isDashboard: true,
         email: user.email,
