@@ -41,8 +41,8 @@
 
     function setRandomSentences() {
         const shuffled = sentences.slice().sort(() => 0.5 - Math.random());
-        for (let i = 0; i < 4; i++) {
-            document.getElementById(`changingSentence`).textContent = shuffled[i];
+        for (let i = 0; i < 10; i++) {
+            document.getElementById("changingSentence").textContent = shuffled[i];
         }
     }
 
