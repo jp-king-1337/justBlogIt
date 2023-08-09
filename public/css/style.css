@@ -4,8 +4,10 @@ body,
     height: 100%;
 }
 
+/* https://coolors.co/561d25-ce8147-ecdd7b-d3e298-cde7be */
 :root {
-    --choco: #561d25;
+    --chocolateCosmos: #561d25;
+    --blackBean: #2E0F13;
     --caramel: #ce8147;
     --flax: #ecdd7b;
     --mindaro: #d3e298;
@@ -25,7 +27,7 @@ p {
 }
 
 button {
-    background-color: var(--choco);
+    background-color: var(--chocolateCosmos);
     color: var(--white);
     border-radius: 5px;
 }
@@ -44,9 +46,9 @@ header {
 header h1 {
     padding: 6px 10px;
     margin: 0;
-    background-color: var(--choco);
+    background-color: var(--chocolateCosmos);
     color: var(--teaGreen);
-    border: 1px solid var(--choco);
+    border: 1px solid var(--chocolateCosmos);
     border-radius: 5px;
 }
 
@@ -64,8 +66,9 @@ nav p {
 nav a {
     text-decoration: none;
     padding: 6px 10px;
-    color: var(--choco);
-    border: 1px solid var(--choco);
+    background-color: var(--chocolateCosmos);
+    color: var(--teaGreen);
+    border: 1px solid var(--chocolateCosmos);
     border-radius: 3px;
 }
 
@@ -73,14 +76,16 @@ nav a:not(:last-child) {
     margin-right: 15px;
 }
 
-nav a.active,
+nav a.active {
+    background-color: var(--chocolateCosmos);
+}
+
 nav a:hover {
-    background-color: var(--choco);
-    color: var(--teaGreen);
+    background-color: var(--blackBean);
 }
 
 form {
-    background-color: #30193475;
+    background-color: var(--caramel);
     width: 400px;
     margin: 20px auto;
     padding: 5px;
@@ -101,6 +106,15 @@ form h1 {
 form button {
     width: fit-content;
     align-self: center;
+    color: var(--teaGreen);
+}
+
+form button:hover {
+    background-color: var(--blackBean);
+}
+
+#create-button {
+    color: var(--chocolateCosmos);
 }
 
 ul li {
