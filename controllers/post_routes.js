@@ -6,7 +6,7 @@ const Post = require("../models/Post");
 function isAuthenticated(req, res, next) {
     const isAuthenticated = req.session.user_id;
 
-    if (!isAuthenticated) return res.redirect("/login");
+    if (!isAuthenticated) return res.redirect("/signin");
 
     next();
 }
