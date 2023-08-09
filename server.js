@@ -31,6 +31,11 @@ app.engine("hbs", engine({
         formatDate: function (date) {
             return new Date(date).toLocaleDateString();
         }
+    },
+    // At a loss to my error - ChatGPT suggests these runtimeOptions
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
     }
 }));
 app.set("view engine", "hbs");
