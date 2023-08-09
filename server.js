@@ -10,7 +10,6 @@ const session = require("express-session");
 const db = require("./db/connection");
 
 // Import routes
-const dashboard_routes = require("./controllers/dashboard_routes");
 const post_routes = require("./controllers/post_routes");
 const user_routes = require("./controllers/user_routes");
 const view_routes = require("./controllers/view_routes");
@@ -50,7 +49,7 @@ app.use(session({
 }));
 
 // Load Routes
-app.use("/", [dashboard_routes, post_routes, user_routes, view_routes]);
+app.use("/", [post_routes, user_routes, view_routes]);
 
 // Connect to db and create tables based off models
 db.sync({ force: false })

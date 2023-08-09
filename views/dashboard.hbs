@@ -11,12 +11,16 @@
 </form>
 
 <main class="posts">
-    {{#each posts}}
-    <div class="post">
-        <h2>{{title}}</h2>
-        <p>{{content}}</p>
-        <p>Author: {{author}}</p>
-        <p>Created On: {{createdAt}}</p>
-    </div>
-    {{/each}}
+    {{#if posts}}
+        {{#each posts}}
+        <div class="post">
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+            <p>Author: {{author}}</p>
+            <p>Created On: {{createdAt}}</p>
+        </div>
+        {{/each}}
+    {{else}}
+        <p>No posts available.</p>
+    {{/if}}
 </main>

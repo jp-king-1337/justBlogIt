@@ -19,7 +19,8 @@ Post.init({
         allowNull: false
     },
     content: {
-        type: DataTypes.STRING,
+        // TEXT allows longer content than STRING
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
             min: 10
