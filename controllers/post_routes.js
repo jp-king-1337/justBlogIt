@@ -12,13 +12,34 @@ function isAuthenticated(req, res, next) {
 }
 
 // Add a post
-router.post("/post", isAuthenticated, async (req, res) => {
-    await Post.create({
-        text: req.body.text,
-        userId: req.session.user_id
-    });
+router.post('/post', isAuthenticated, async (req, res) => {
+    try {
+        const { title, content } = req.body;
+        console.log(req.session.user_username)
+        const author = req.session.user_username;
+        const createdOn = new Date();
 
-    res.redirect("/dashboard");
+        await Post.create({
+            title,
+            content,
+            author,
+            createdOn
+        });
+
+        res.redirect("/dashboard");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Failed to create a new post.");
+    }
 });
+
+// router.post("/post", isAuthenticated, async (req, res) => {
+//     await Post.create({
+//         text: req.body.text,
+//         userId: req.session.user_id
+//     });
+
+//     res.redirect("/dashboard");
+// });
 
 module.exports = router;
