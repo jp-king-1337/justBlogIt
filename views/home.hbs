@@ -46,8 +46,10 @@
 
     function setRandomSentences() {
         const shuffled = sentences.slice().sort(() => 0.5 - Math.random());
+        const sentenceElement = document.getElementById("changingSentence");
+        if (!sentenceElement) return;
         for (let i = 0; i < 10; i++) {
-            document.getElementById("changingSentence").textContent = shuffled[i];
+            sentenceElement.textContent = shuffled[i];
         }
     }
 
