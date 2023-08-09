@@ -6,6 +6,14 @@ const Post = require("./Post");
 class User extends Model { }
 
 User.init({
+    username: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+            min: 3
+        }
+    },
     email: {
         type: DataTypes.STRING,
         unique: true,

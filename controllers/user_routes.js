@@ -3,7 +3,7 @@ const User = require("../models/User");
 
 
 // Log in user
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
     try {
         const formEmail = req.body.email;
         const formPassword = req.body.password;
@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
 
     } catch (err) {
         if (err.message === "invalid_password") {
-            res.redirect("/login");
+            res.redirect("/signin");
         }
     }
 });
@@ -36,13 +36,13 @@ router.post("/register", async (req, res) => {
     try {
         const newUser = await User.create(req.body);
 
-        req.session_user_id = newUser.id;
+        req.session.user_id = newUser.id;
 
         res.redirect("/dashboard");
     } catch (err) {
         const dupeEmail = err.errors.find(e => e.path === "email");
 
-        if (dupeEmail) res.redirect("/login");
+        if (dupeEmail) res.redirect("/signin");
     }
 });
 

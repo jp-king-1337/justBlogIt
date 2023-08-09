@@ -6,7 +6,7 @@ const Post = require("../models/Post");
 function isAuthenticated(req, res, next) {
     const isAuthenticated = req.session.user_id;
 
-    if (!isAuthenticated) return res.redirect("/login");
+    if (!isAuthenticated) return res.redirect("/signin");
 
     next();
 }
@@ -31,16 +31,16 @@ router.get("/register", (req, res) => {
     if (req.session.user_id) return res.redirect("/dashboard");
 
     res.render("register", {
-        isRegister: true
+        isAuth: true
     });
 });
 
-// Show Login Page
-router.get("/login", (req, res) => {
+// Show Signin Page
+router.get("/signin", (req, res) => {
     if (req.session.user_id) return res.redirect("/dashboard");
 
-    res.render("login", {
-        isLogin: true
+    res.render("signin", {
+        isAuth: true
     });
 });
 
@@ -53,7 +53,6 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
 
     const posts = user.posts.map(t => t.get({ plain: true }));
 
-    // The user IS logged in
     res.render("dashboard", {
         isDashboard: true,
         email: user.email,
