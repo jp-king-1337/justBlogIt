@@ -10,7 +10,9 @@ const session = require("express-session");
 const db = require("./db/connection");
 
 // Import routes
-// Not yet, but will need to later
+const post_routes = require("./controllers/post_routes");
+const user_routes = require("./controllers/user_routes");
+const view_routes = require("./controllers/view_routes");
 
 const app = express();
 const PORT = process.env.PORT || 3333;
@@ -37,7 +39,7 @@ app.use(session({
 }));
 
 // Load Routes
-// app.use("/"); // None yet, I guess that this will crash the server as long as I'm not calling any Middleware. Gonna comment out.
+app.use("/", [post_routes, user_routes, view_routes]);
 
 // Connect to db and create tables based off models
 db.sync({ force: false })
