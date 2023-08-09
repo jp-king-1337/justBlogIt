@@ -14,16 +14,14 @@ function isAuthenticated(req, res, next) {
 router.post('/post', isAuthenticated, async (req, res) => {
     try {
         const { title, content } = req.body;
-        console.log(req.session.user_username)
         const author = req.session.user_username;
-        const createdOn = new Date();
 
+        // This console log should NOT affect whether the code works. And yet, without it, posts are not created. Sorcery.
         console.log(req.session.user_username);
         await Post.create({
             title,
             content,
-            author,
-            createdOn
+            author
         });
 
         res.redirect("/dashboard");
@@ -32,14 +30,5 @@ router.post('/post', isAuthenticated, async (req, res) => {
         res.status(500).send("Failed to create a new post.");
     }
 });
-
-// router.post("/post", isAuthenticated, async (req, res) => {
-//     await Post.create({
-//         text: req.body.text,
-//         userId: req.session.user_id
-//     });
-
-//     res.redirect("/dashboard");
-// });
 
 module.exports = router;

@@ -8,11 +8,12 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    createdOn: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
-    },
+    // createdOn is unnecessary because of the automatic createdAt - I forgot that's automatically made
+    // createdOn: {
+    //     type: DataTypes.DATE,
+    //     allowNull: false,
+    //     defaultValue: DataTypes.NOW
+    // },
     author: {
         type: DataTypes.STRING,
         allowNull: false
