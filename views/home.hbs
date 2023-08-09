@@ -1,19 +1,49 @@
-<div style="text-align: center;">
+<div class="welcome-page">
     <h1>Welcome to Just Blog It!</h1>
-    <p>Got something to say? Just Blog It!</p>
+
+    {{!-- Choose a random sentence --}}
+    <h2 id="changingSentence" class="random-sentence"></h2>
+
+    {{!-- This one is constant --}}
+    <h2>Got something to say about tech? Just Blog It!</h2>
+
 
     <main class="posts">
-        {{#if posts}}
-        {{#each posts}}
+        {{#if post}}
         <div class="post">
-            <h2>{{title}}</h2>
-            <p>{{content}}</p>
-            <p>Author: {{author}}</p>
-            <p>Created On: {{createdAt}}</p>
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+            <p>Author: {{post.author}}</p>
+            <p>Created On: {{post.createdAt}}</p>
         </div>
-        {{/each}}
         {{else}}
         <p>No posts available.</p>
         {{/if}}
     </main>
+
 </div>
+
+{{!-- ChatGPT generated the sentences array for me. --}}
+<script>
+    const sentences = [
+        "Unleash your passion for technology and innovation.",
+        "Dive into the digital universe with us, where every pixel holds a story waiting to be explored.",
+        "Discover the latest tech trends, unearth hidden gems, and join the conversation that shapes tomorrow's digital landscape.",
+        "Whether you're a code whisperer or a tech enthusiast, Just Blog It is your portal to the ever-evolving world of bytes and circuits.",
+        "Join our community of tech enthusiasts and stay up-to-date with the latest breakthroughs.",
+        "Explore the intersection of creativity and technology in our diverse range of articles.",
+        "Unlock your curiosity and expand your horizons with our insightful tech content.",
+        "Embark on a journey through the digital realm and uncover the possibilities that await.",
+        "Turn your passion for tech into impactful stories that resonate with our global audience.",
+        "Elevate your understanding of technology and its influence on the modern world through our engaging content."
+    ];
+
+    function setRandomSentences() {
+        const shuffled = sentences.slice().sort(() => 0.5 - Math.random());
+        for (let i = 0; i < 10; i++) {
+            document.getElementById("changingSentence").textContent = shuffled[i];
+        }
+    }
+
+    window.onload = setRandomSentences;
+</script>
