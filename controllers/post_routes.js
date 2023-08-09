@@ -19,6 +19,7 @@ router.post('/post', isAuthenticated, async (req, res) => {
         const author = req.session.user_username;
         const createdOn = new Date();
 
+        console.log(req.session.user_username);
         await Post.create({
             title,
             content,
