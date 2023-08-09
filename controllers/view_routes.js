@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
     posts = posts.map(t => t.get({ plain: true }));
 
-    res.render("home", {
+    res.render("dashboard", {
         isHome: true,
         isLoggedIn: req.session.user_id,
         posts
