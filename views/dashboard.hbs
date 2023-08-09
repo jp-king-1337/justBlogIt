@@ -12,15 +12,15 @@
 
 <main class="posts">
     {{#if posts}}
-        {{#each posts}}
-        <div class="post">
-            <h2>{{title}}</h2>
-            <p>{{content}}</p>
-            <p>Author: {{author}}</p>
-            <p>Created On: {{createdAt}}</p>
-        </div>
-        {{/each}}
+    {{#each posts}}
+    <div class="post">
+        <h2>{{title}}</h2>
+        <p>{{content}}</p>
+        <p>Author: {{author}}</p>
+        <p>Created On: {{createdAt}}</p>
+    </div>
+    {{/each}}
     {{else}}
-        <p>No posts available.</p>
+    <p>No posts available.</p>
     {{/if}}
 </main>
