@@ -7,7 +7,7 @@ router.get("/dashboard", async (req, res) => {
     try {
         const posts = await Post.findAll();
 
-        console.log(posts);
+        // console.log(posts); // Don't need this now - gonna just comment out, just in case I need it again
         res.render("dashboard", { posts });
     } catch (error) {
         console.error(error);
