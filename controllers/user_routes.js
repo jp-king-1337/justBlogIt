@@ -21,6 +21,7 @@ router.post("/signin", async (req, res) => {
         if (!isValidPass) throw new Error("invalid_password");
 
         req.session.user_id = user.id;
+        req.session.user_username = user.username;
 
         res.redirect("/dashboard");
 
