@@ -38,6 +38,7 @@ router.post("/register", async (req, res) => {
         const newUser = await User.create(req.body);
 
         req.session.user_id = newUser.id;
+        req.session.user_username = newUser.username;
 
         res.redirect("/dashboard");
     } catch (err) {

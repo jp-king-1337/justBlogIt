@@ -14,6 +14,7 @@ function isAuthenticated(req, res, next) {
 router.post('/post', isAuthenticated, async (req, res) => {
     try {
         const { title, content } = req.body;
+        console.log("User username:", req.session.user_username);
         const author = req.session.user_username;
 
         // This console log should NOT affect whether the code works. And yet, without it, posts are not created. Sorcery.
