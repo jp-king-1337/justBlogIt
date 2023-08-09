@@ -1,5 +1,20 @@
 <h1>This is dashboard.</h1>
 
-<ul>
-    <p>existing posts here</p>
-</ul>
+<form action="/post" method="POST">
+    <label for="title">Title:</label>
+    <input id="title" name="title" type="text" placeholder="Title">
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" placeholder="Content"></textarea>
+
+    <button>Share</button>
+</form>
+
+<main class="posts">
+    {{#each posts}}
+    <div class="post">
+        <h2>{{title}}</h2>
+        <p>{{content}}</p>
+    </div>
+    {{/each}}
+</main>
