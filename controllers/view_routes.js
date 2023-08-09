@@ -57,6 +57,7 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
 
     res.render("dashboard", {
         isDashboard: true,
+        isLoggedIn: true,
         email: user.email,
         posts
     });
