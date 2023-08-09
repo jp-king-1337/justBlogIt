@@ -15,7 +15,7 @@ const user_routes = require("./controllers/user_routes");
 const view_routes = require("./controllers/view_routes");
 
 const app = express();
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3636;
 
 // Middleware
 app.use(express.json()); // Allows client/browser to send json in a request
