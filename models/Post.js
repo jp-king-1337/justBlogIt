@@ -1,10 +1,23 @@
 const { Model, DataTypes } = require("sequelize");
 const db = require("../db/connection");
 
-class Post extends Model {}
+class Post extends Model { }
 
 Post.init({
-    text: {
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    createdOn: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW
+    },
+    author: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    content: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
