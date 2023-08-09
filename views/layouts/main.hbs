@@ -12,13 +12,17 @@
     <header>
         <nav>
             {{#if isLoggedIn}}
-                <a href="/dashboard" class="{{#if isDashboard}}active{{/if}}">Dashboard</a>
-                <a href="/logout">Sign Out</a>
+            <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+            <a href="/dashboard" class="{{#if isDashboard}}active{{/if}}">Dashboard</a>
+            <a href="/logout">Sign Out</a>
             {{else}}
-                <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
-                <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
+            <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+            <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
             {{/if}}
         </nav>
+
+        <h1>Just Blog It!</h1>
+
     </header>
 
     {{{body}}}

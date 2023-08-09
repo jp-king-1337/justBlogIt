@@ -1,4 +1,19 @@
 <div style="text-align: center;">
     <h1>Welcome to Just Blog It!</h1>
     <p>Got something to say? Just Blog It!</p>
+
+    <main class="posts">
+        {{#if posts}}
+        {{#each posts}}
+        <div class="post">
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+            <p>Author: {{author}}</p>
+            <p>Created On: {{createdAt}}</p>
+        </div>
+        {{/each}}
+        {{else}}
+        <p>No posts available.</p>
+        {{/if}}
+    </main>
 </div>

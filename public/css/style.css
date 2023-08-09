@@ -5,13 +5,18 @@ body,
 }
 
 :root {
-    --myPurple: #301934;
-    --myPurpleLight: #30193475;
+    --choco: #561d25;
+    --caramel: #ce8147;
+    --flax: #ecdd7b;
+    --mindaro: #d3e298;
+    --teaGreen: #cde7be;
     --white: #fff;
 }
 
 body {
-    padding: 5%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--teaGreen);
 }
 
 p {
@@ -20,18 +25,32 @@ p {
 }
 
 button {
-    background-color: var(--myPurple);
+    background-color: var(--choco);
     color: var(--white);
     border-radius: 5px;
 }
 
 header {
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--caramel);
+    padding: 10px;
+    width: 100%;
+}
+
+header h1 {
+    padding: 6px 10px;
+    margin: 0;
+    background-color: var(--choco);
+    color: var(--teaGreen);
+    border: 1px solid var(--choco);
+    border-radius: 5px;
 }
 
 nav {
+    margin-right: 20px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -44,8 +63,8 @@ nav p {
 nav a {
     text-decoration: none;
     padding: 6px 10px;
-    color: var(--myPurple);
-    border: 1px solid var(--myPurple);
+    color: var(--choco);
+    border: 1px solid var(--choco);
     border-radius: 3px;
 }
 
@@ -55,8 +74,8 @@ nav a:not(:last-child) {
 
 nav a.active,
 nav a:hover {
-    background-color: var(--myPurple);
-    color: var(--white);
+    background-color: var(--choco);
+    color: var(--teaGreen);
 }
 
 form {
