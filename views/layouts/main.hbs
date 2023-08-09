@@ -11,9 +11,13 @@
 <body>
     <header>
         <nav>
-            <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
-            <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
-            {{!-- <a href="/register" class="{{#if isRegister}}active{{/if}}">Register</a> --}}
+            {{#if isLoggedIn}}
+                <a href="/dashboard" class="{{#if isDashboard}}active{{/if}}">Dashboard</a>
+                <a href="/logout">Sign Out</a>
+            {{else}}
+                <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+                <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
+            {{/if}}
         </nav>
     </header>
 

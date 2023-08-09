@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
     posts = posts.map(t => t.get({ plain: true }));
 
-    res.render("dashboard", {
+    res.render("home", {
         isHome: true,
         isLoggedIn: req.session.user_id,
         posts
@@ -31,7 +31,8 @@ router.get("/register", (req, res) => {
     if (req.session.user_id) return res.redirect("/dashboard");
 
     res.render("register", {
-        isAuth: true
+        isAuth: true,
+        isLoggedIn: false
     });
 });
 
@@ -40,7 +41,8 @@ router.get("/signin", (req, res) => {
     if (req.session.user_id) return res.redirect("/dashboard");
 
     res.render("signin", {
-        isAuth: true
+        isAuth: true,
+        isLoggedIn: false
     });
 });
 
@@ -55,6 +57,7 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
 
     res.render("dashboard", {
         isDashboard: true,
+        isLoggedIn: true,
         email: user.email,
         posts
     });
