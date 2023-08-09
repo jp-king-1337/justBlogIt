@@ -8,23 +8,22 @@
     <h2>Got something to say about tech? Just Blog It!</h2>
 
 
-    {{!-- <main class="posts">
-        {{#if posts}}
-        {{#each posts}}
+    <main class="posts">
+        {{#if post}}
         <div class="post">
-            <h2>{{title}}</h2>
-            <p>{{content}}</p>
-            <p>Author: {{author}}</p>
-            <p>Created On: {{createdAt}}</p>
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+            <p>Author: {{post.author}}</p>
+            <p>Created On: {{post.createdAt}}</p>
         </div>
-        {{/each}}
         {{else}}
         <p>No posts available.</p>
         {{/if}}
-    </main> --}}
+    </main>
+
 </div>
 
-{{!-- ChatGPT generated the sentence array for me. --}}
+{{!-- ChatGPT generated the sentences array for me. --}}
 <script>
     const sentences = [
         "Unleash your passion for technology and innovation.",
