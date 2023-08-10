@@ -10,6 +10,16 @@
 
 <body>
     <header>
+        {{!-- <nav>
+            {{#if isLoggedIn}}
+            <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+            <a href="/dashboard" class="{{#if isDashboard}}active{{/if}}">Dashboard</a>
+            <a href="/logout">Sign Out</a>
+            {{else}}
+            <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+            <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
+            {{/if}}
+        </nav> --}}
         <nav>
             {{#if isLoggedIn}}
             <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
@@ -17,6 +27,7 @@
             <a href="/logout">Sign Out</a>
             {{else}}
             <a href="/" class="{{#if isHome}}active{{/if}}">Home</a>
+            <a href="/dashboard" class="{{#if isDashboard}}active{{/if}}">Dashboard</a>
             <a href="/signin" class="{{#if isAuth}}active{{/if}}">Sign In / Register</a>
             {{/if}}
         </nav>
