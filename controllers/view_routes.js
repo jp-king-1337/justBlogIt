@@ -60,13 +60,13 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
         });
 
         const posts = user.posts.map(t => t.get({ plain: true }));
-        console.log("Posts:", posts);
+
         res.render("dashboard", {
             isDashboard: true,
             isLoggedIn: true,
             username: user.username,
             email: user.email,
-            posts: user.Posts
+            posts
         });
     } catch (error) {
         console.error(error);
