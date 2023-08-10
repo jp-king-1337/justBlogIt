@@ -13,32 +13,24 @@ function isAuthenticated(req, res, next) {
 
 // Show Homepage
 router.get("/", async (req, res) => {
-    if (req.session.user_id) {
-        // If user is logged in, fetch all posts
-        try {
-            let posts = await Post.findAll({
-                include: User
-            });
+    try {
+        let posts = await Post.findAll({
+            include: User
+        });
 
-            posts = posts.map(t => t.get({ plain: true }));
+        posts = posts.map(t => t.get({ plain: true }));
 
-            res.render("home", {
-                isHome: true,
-                isLoggedIn: req.session.user_id,
-                posts
-            });
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("Failed to retrieve posts.");
-        }
-    } else {
-        // If user is not logged in, only show the welcome message
         res.render("home", {
             isHome: true,
-            isLoggedIn: false
+            isLoggedIn: req.session.user_id,
+            posts
         });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Failed to retrieve posts.");
     }
 });
+
 
 // Show Register Page
 router.get("/register", (req, res) => {
