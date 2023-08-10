@@ -84,7 +84,8 @@ nav a:hover {
     background-color: var(--blackBean);
 }
 
-form {
+form,
+#newPostForm {
     background-color: var(--caramel);
     width: 400px;
     margin: 20px auto;
@@ -94,22 +95,26 @@ form {
     border-radius: 5px;
 }
 
-form>* {
+form,
+#newPostForm>* {
     padding: 7px 10px;
     margin: 3px 0;
 }
 
-form h1 {
+form,
+#newPostForm h1 {
     text-align: center;
 }
 
-form button {
+form,
+#newPostForm button {
     width: fit-content;
     align-self: center;
     color: var(--teaGreen);
 }
 
-form button:hover {
+form,
+#newPostForm button:hover {
     background-color: var(--blackBean);
 }
 

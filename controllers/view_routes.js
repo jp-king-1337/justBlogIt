@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
             let posts = await Post.findAll({
                 include: User
             });
-            
+
             posts = posts.map(t => t.get({ plain: true }));
 
             res.render("home", {
@@ -74,7 +74,7 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
             isDashboard: true,
             isLoggedIn: true,
             email: user.email,
-            posts
+            posts: user.posts
         });
     } catch (error) {
         console.error(error);
