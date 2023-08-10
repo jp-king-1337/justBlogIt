@@ -40,7 +40,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-
 // Show Register Page
 router.get("/register", (req, res) => {
     if (req.session.user_id) return res.redirect("/dashboard");
@@ -73,8 +72,9 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
         res.render("dashboard", {
             isDashboard: true,
             isLoggedIn: true,
+            username: user.username,
             email: user.email,
-            posts: user.posts
+            posts: user.Posts
         });
     } catch (error) {
         console.error(error);

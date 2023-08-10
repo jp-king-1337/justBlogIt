@@ -140,3 +140,23 @@ ul li p {
 .random-sentence {
     margin-bottom: 10px;
 }
+
+#newPostBtnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#newPostButton {
+    background-color: var(--chocolateCosmos);
+    color: var(--mindaro);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#newPostButton:hover {
+    background-color: var(--blackBean);
+}
