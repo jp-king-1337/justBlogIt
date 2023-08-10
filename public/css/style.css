@@ -118,7 +118,7 @@ form button:hover {
 }
 
 #create-button {
-    color: var(--chocolateCosmos);
+    color: var(--blackBean);
 }
 
 ul li {
@@ -193,5 +193,9 @@ ul li p {
 }
 
 .dashboard-heading {
+    text-align: center;
+}
+
+.align-center {
     text-align: center;
 }
