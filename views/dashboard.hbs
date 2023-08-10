@@ -2,7 +2,7 @@
 
 <button id="newPostButton">Create New Post</button>
 
-<form id="newPostForm" action="/post" method="POST" style="display: none;">
+<form class="invisible" id="newPostForm" action="/post" method="POST">
     <label for="title">Title:</label>
     <input id="title" name="title" type="text" placeholder="Title">
 
@@ -31,10 +31,12 @@
     document.addEventListener("DOMContentLoaded", function () {
         const newPostButton = document.getElementById("newPostButton");
         const newPostForm = document.getElementById("newPostForm");
+        newPostForm.classList.add("invisible");
+
 
         newPostButton.addEventListener("click", function () {
-            newPostForm.style.display = "block";
-            newPostButton.style.display = "none";
+            newPostForm.classList.remove("invisible");
+            newPostButton.classList.add("invisible");
         });
     });
 </script>
