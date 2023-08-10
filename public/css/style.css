@@ -191,3 +191,7 @@ ul li p {
 .post p.createdAt {
     font-style: normal;
 }
+
+.dashboard-heading {
+    text-align: center;
+}

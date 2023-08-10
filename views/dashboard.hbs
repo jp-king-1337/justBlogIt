@@ -14,14 +14,15 @@
     <button>Share</button>
 </form>
 
+<h1 class="dashboard-heading">Your Posts:</h1>
+
 <main class="posts">
     {{#if posts}}
     {{#each posts}}
     <div class="post">
         <h2>{{title}}</h2>
-        <p>{{content}}</p>
-        <p>Author: {{author}}</p>
         <p>Created On: {{createdAt}}</p>
+        <p>{{content}}</p>
     </div>
     {{/each}}
     {{else}}

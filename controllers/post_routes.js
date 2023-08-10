@@ -57,7 +57,7 @@ router.get("/posts/:postId", async (req, res) => {
             res.json({
                 title: postData.title,
                 content: postData.content,
-                author: post.User.username,
+                author: postData.author,
                 createdAt: postData.createdAt
             });
         } else {

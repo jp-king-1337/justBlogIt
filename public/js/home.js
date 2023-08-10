@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     postContainers.forEach(postContainer => {
         postContainer.addEventListener("click", async () => {
             const postId = postContainer.dataset.postId;
-            const response = await fetch(`/post/${postId}`);
+            const response = await fetch(`/posts/${postId}`);
             const postData = await response.json();
 
             if (postData) {
                 postContainer.innerHTML = `
                     <h2>${postData.title}</h2>
-                    <p>Author: ${postData.author}</p>
                     <p>Created On: ${postData.createdAt}</p>
+                    <p>Author: ${postData.author}</p>
                     <p>${postData.content}</p>
                 `;
             }
