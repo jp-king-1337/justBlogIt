@@ -113,8 +113,12 @@ form button:hover {
     background-color: var(--blackBean);
 }
 
+.invisible {
+    display: none;
+}
+
 #create-button {
-    color: var(--chocolateCosmos);
+    color: var(--blackBean);
 }
 
 ul li {
@@ -135,4 +139,63 @@ ul li p {
 
 .random-sentence {
     margin-bottom: 10px;
+}
+
+#newPostBtnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#newPostButton {
+    background-color: var(--chocolateCosmos);
+    color: var(--mindaro);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#newPostButton:hover {
+    background-color: var(--blackBean);
+}
+
+.post {
+    background-color: var(--flax);
+    border: 1px solid var(--mindaro);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 40px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+    color: var(--chocolateCosmos);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.post p {
+    color: var(--blackBean);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post p:last-child {
+    margin-bottom: 0;
+}
+
+.post p.author,
+.post p.createdAt {
+    font-style: normal;
+}
+
+.dashboard-heading {
+    text-align: center;
+}
+
+.align-center {
+    text-align: center;
 }

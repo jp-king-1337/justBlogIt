@@ -45,7 +45,10 @@ app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: { httpOnly: true }
+    cookie: {
+        httpOnly: true,
+        maxAge: 30 * 60 * 100
+    }
 }));
 
 // Load Routes

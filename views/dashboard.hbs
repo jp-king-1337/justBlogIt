@@ -1,6 +1,10 @@
-<h1>This is dashboard.</h1>
+{{!-- <h1>Welcome, {{user.username}}.</h1> --}}
 
-<form action="/post" method="POST">
+<div id="newPostBtnWrapper">
+    <button id="newPostButton">Create New Post</button>
+</div>
+
+<form class="invisible" id="newPostForm" action="/post" method="POST">
     <label for="title">Title:</label>
     <input id="title" name="title" type="text" placeholder="Title">
 
@@ -10,17 +14,30 @@
     <button>Share</button>
 </form>
 
+<h1 class="dashboard-heading">Your Posts:</h1>
+
 <main class="posts">
     {{#if posts}}
     {{#each posts}}
     <div class="post">
         <h2>{{title}}</h2>
-        <p>{{content}}</p>
-        <p>Author: {{author}}</p>
         <p>Created On: {{createdAt}}</p>
+        <p>{{content}}</p>
     </div>
     {{/each}}
     {{else}}
     <p>No posts available.</p>
     {{/if}}
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const newPostButton = document.getElementById("newPostButton");
+        const newPostForm = document.getElementById("newPostForm");
+
+        newPostButton.addEventListener("click", function () {
+            newPostForm.classList.remove("invisible");
+            newPostButton.classList.add("invisible");
+        });
+    });
+</script>
