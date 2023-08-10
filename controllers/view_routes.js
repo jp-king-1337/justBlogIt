@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 
 // Show Register Page
 router.get("/register", (req, res) => {
-    if (req.session.user_id) return res.redirect("/dashboard");
+    if (req.session.user_id) return res.redirect("/");
 
     res.render("register", {
         isAuth: true,
@@ -44,7 +44,7 @@ router.get("/register", (req, res) => {
 
 // Show Signin Page
 router.get("/signin", (req, res) => {
-    if (req.session.user_id) return res.redirect("/dashboard");
+    if (req.session.user_id) return res.redirect("/");
 
     res.render("signin", {
         isAuth: true,

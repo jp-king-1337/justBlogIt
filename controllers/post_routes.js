@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const User = require("../models/User");
 const Post = require("../models/Post");
 
 // Custom Middleware
@@ -27,6 +28,31 @@ router.post('/post', isAuthenticated, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send("Failed to create a new post.");
+    }
+});
+
+// Show a specific post
+router.get("/post/:postId", async (req, res) => {
+    try {
+        const postId = req.params.postId;
+        const post = await Post.findByPk(postId, {
+            include: User
+        });
+
+        if (post) {
+            const postData = post.get({ plain: true });
+            res.json({
+                title: postData.title,
+                content: postData.content,
+                author: post.User.username,
+                createdAt: postData.createdAt
+            });
+        } else {
+            res.json(null);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Failed to retrieve post.");
     }
 });
 
