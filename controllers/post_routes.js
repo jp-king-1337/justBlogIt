@@ -16,12 +16,14 @@ router.post('/post', isAuthenticated, async (req, res) => {
     try {
         const { title, content } = req.body;
         const author = req.session.user_username;
+        const userId = req.session.user_id;
 
         console.log("Logged in user:", author);
         await Post.create({
             title,
             content,
-            author
+            author,
+            userId
         });
 
         res.redirect("/dashboard");
@@ -31,8 +33,19 @@ router.post('/post', isAuthenticated, async (req, res) => {
     }
 });
 
+// Show all posts
+router.get("/posts", async (req, res) => {
+    try {
+        const posts = await Post.findAll();
+        res.json(posts);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Failed to retrieve posts.");
+    }
+});
+
 // Show a specific post
-router.get("/post/:postId", async (req, res) => {
+router.get("/posts/:postId", async (req, res) => {
     try {
         const postId = req.params.postId;
         const post = await Post.findByPk(postId, {
