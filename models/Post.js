@@ -8,18 +8,11 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    // createdOn is unnecessary because of the automatic createdAt - I forgot that's automatically made
-    // createdOn: {
-    //     type: DataTypes.DATE,
-    //     allowNull: false,
-    //     defaultValue: DataTypes.NOW
-    // },
     author: {
         type: DataTypes.STRING,
         allowNull: false
     },
     content: {
-        // TEXT allows longer content than STRING
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
