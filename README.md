@@ -7,6 +7,8 @@ Just Blog It is your gateway to a vibrant tech community, offering a curated spa
 
 [Deployed Link](https://jp-just-blog-it-ae6e976d19e8.herokuapp.com/)
 
+![Screenshot of the homepage of the deployed site](images/justBlogIt_screenshot.png)
+
 
 ## Table of Contents
 
